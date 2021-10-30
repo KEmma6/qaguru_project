@@ -37,8 +37,8 @@ public class RegistrationFormTest {
         actions.moveToElement($("#hobbies-checkbox-3")).click().build().perform();
         $("input#uploadPicture").setValue("C:\\Users\\kurga\\Desktop\\1540449964194466233.png");
         $("textarea#currentAddress").setValue("44 Cedar Avenue");
-        $("div#state svg[class='css-19bqh2r']").scrollTo();
-        $("div#state svg[class='css-19bqh2r']").click();
+        $("div#state svg").scrollTo();
+        $("div#state svg").click();
         $(byText("Uttar Pradesh")).click();
         $("div#city svg[class='css-19bqh2r']").click();
         $(byText("Agra")).click();
