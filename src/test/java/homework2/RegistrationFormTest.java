@@ -1,4 +1,4 @@
-package testSuites;
+package homework2;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
