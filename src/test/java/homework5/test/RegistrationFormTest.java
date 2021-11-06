@@ -21,6 +21,7 @@ public class RegistrationFormTest extends TestBase {
         String gender = "Female";
         String year = "1992";
         String month = "November";
+        String image = "imgForTestRegistration.png";
 
         registrationPage
                 .openPage();
@@ -34,7 +35,7 @@ public class RegistrationFormTest extends TestBase {
                 .setInputDateOfBirth(month, year)
                 .chooseSubject(subject)
                 .clickCheckBoxHobbies()
-                .upLoadImageOnPage()
+                .upLoadImageOnPage(image)
                 .setAddressInTextarea(address)
                 .chooseState()
                 .chooseCity()
@@ -51,7 +52,7 @@ public class RegistrationFormTest extends TestBase {
                 .assertTableAfterRegistrationHave(year)
                 .assertTableAfterRegistrationHave(subject)
                 .assertTableAfterRegistrationHave(address)
-                .assertTableAfterRegistrationHave(gender);
+                .assertTableAfterRegistrationHave(image);
 
     }
 }

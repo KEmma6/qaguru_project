@@ -5,6 +5,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -82,8 +84,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage upLoadImageOnPage() {
-        upLoadPictures.setValue("C:\\Users\\kurga\\Desktop\\1540449964194466233.png");
+    public RegistrationPage upLoadImageOnPage(String imagePath) {
+        upLoadPictures.uploadFromClasspath(imagePath);
         return this;
     }
 
