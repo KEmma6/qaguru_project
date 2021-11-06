@@ -1,25 +1,19 @@
+import java.util.Calendar;
+
 public class Dracula {
-    private final String NAME = "Влад Цепеш";
-    private int age;
+    private final String name = "Влад Цепеш";
     private boolean hunger;
     private String hobbies;
-    private final String LOCATION = "Сигишоара, Трансильвания";
+    private final String location = "Сигишоара, Трансильвания";
     private boolean isHumanBited;
+    private final int yearOfBirth = 1436;
 
     public String getNAME() {
-        return NAME;
+        return name;
     }
 
     public String getLOCATION() {
-        return LOCATION;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+        return location;
     }
 
     public boolean isHunger() {
@@ -36,6 +30,10 @@ public class Dracula {
 
     public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
     public Dracula() {
@@ -56,5 +54,17 @@ public class Dracula {
         else {
             System.out.println("Я голодный? Да!");
         }
+    }
+
+    public void printInformationOfDracula() {
+        System.out.println("Меня зовут " + getNAME() + "\n" +
+                "Мой текущий возраст " + draculaAgeCalculation() + " лет" + "\n" +
+                "Я живу в " + getLOCATION() + "\n" +
+                "Я люблю " + getHobbies());
+    }
+
+    public int draculaAgeCalculation() {
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        return currentYear - getYearOfBirth();
     }
 }
