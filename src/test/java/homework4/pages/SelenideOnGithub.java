@@ -22,6 +22,7 @@ public class SelenideOnGithub {
     //actions
     public void openPage() {
         open("https://github.com/selenide/selenide");
+
     }
 
     public SelenideOnGithub goToWikiTab() {
