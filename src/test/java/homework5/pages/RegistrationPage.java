@@ -1,6 +1,5 @@
-package homework2.pages;
+package homework5.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Assertions;

@@ -1,19 +1,9 @@
-package homework2.test;
+package homework5.test;
 
 import TestBase.TestBase;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
 import com.github.javafaker.Faker;
-import homework2.pages.RegistrationPage;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import homework5.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.StringUtils;
-import org.openqa.selenium.interactions.Actions;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTest extends TestBase {
 
