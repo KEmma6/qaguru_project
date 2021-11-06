@@ -18,6 +18,7 @@ public class SelenideOnGithub {
             linkSoftAssertions = $(byText("Soft assertions")),
             textTitleSoftAssertions = $("h1");
 
+
     //actions
     public SelenideOnGithub openPage() {
         open("https://github.com/selenide/selenide");

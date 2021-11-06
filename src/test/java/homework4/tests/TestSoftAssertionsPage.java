@@ -1,16 +1,10 @@
 package homework4.tests;
 
-import com.codeborne.selenide.Configuration;
+import TestBase.TestBase;
 import homework4.pages.SelenideOnGithub;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class TestSoftAssertionsPage {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-    }
+public class TestSoftAssertionsPage extends TestBase {
 
     @Test
     public void testSoftAssertionsHaveJUnit5Example(){
