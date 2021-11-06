@@ -4,7 +4,6 @@ import TestBase.TestBase;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestDragAndDrop extends TestBase {
@@ -19,11 +18,10 @@ public class TestDragAndDrop extends TestBase {
                         titleSquare = $("div#column-a > header");
 
         Assertions.assertTrue(titleSquare.getText().contains("A"));
-      // squareA.click();
-            //   actions().clickAndHold(squareA).moveToElement(squareB).release().perform();
-            actions().dragAndDrop(squareA, squareB).build().perform();
+            //actions().clickAndHold(squareA).moveToElement(squareB).release().perform(); <---не работает
+            //actions().dragAndDrop(squareA, squareB).build().perform(); <---не работает
 
-        //squareA.dragAndDropTo(squareB);
+        squareA.dragAndDropTo(squareB);
         Assertions.assertTrue(titleSquare.getText().contains("B"));
 
     }
