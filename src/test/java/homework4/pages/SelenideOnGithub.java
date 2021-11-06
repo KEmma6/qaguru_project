@@ -20,9 +20,8 @@ public class SelenideOnGithub {
 
 
     //actions
-    public SelenideOnGithub openPage() {
+    public void openPage() {
         open("https://github.com/selenide/selenide");
-        return this;
     }
 
     public SelenideOnGithub goToWikiTab() {
