@@ -5,5 +5,6 @@ public class FirstClass {
         dracula.printInformationOfDracula();
         dracula.biteHumans();
         dracula.isDraculaHungerAfterBite();
+        Dracula.resultsOfDraculasAttack();
     }
 }

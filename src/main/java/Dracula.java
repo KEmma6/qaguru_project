@@ -1,15 +1,16 @@
 import java.util.Calendar;
 
 public class Dracula {
-    private final String name = "Влад Цепеш";
+    private static final String NAME = "Влад Цепеш";
     private boolean hunger;
     private String hobbies;
     private final String location = "Сигишоара, Трансильвания";
     private boolean isHumanBited;
     private final int yearOfBirth = 1436;
+    private static int tusks = 4;
 
     public String getNAME() {
-        return name;
+        return NAME;
     }
 
     public String getLOCATION() {
@@ -50,8 +51,7 @@ public class Dracula {
     public void isDraculaHungerAfterBite() {
         if (isHumanBited) {
             System.out.println("Я голодный? Нет!");
-        }
-        else {
+        } else {
             System.out.println("Я голодный? Да!");
         }
     }
@@ -66,5 +66,19 @@ public class Dracula {
     public int draculaAgeCalculation() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         return currentYear - getYearOfBirth();
+    }
+
+    public static void resultsOfDraculasAttack() {
+        String[] words = NAME.split(" ");
+        String name = words[0];
+        String secondName = words[1];
+        String a = "а";
+        System.out.println("Количество ран, после укуса " + name + a + " " + secondName + a + " = " + BiteOfDracula.countOfWounds());
+    }
+
+    public static class BiteOfDracula {
+        public static int countOfWounds() {
+            return tusks;
+        }
     }
 }
