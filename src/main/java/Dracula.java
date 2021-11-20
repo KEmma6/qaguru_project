@@ -1,6 +1,7 @@
 import java.util.Calendar;
 
 public class Dracula {
+    private static Dracula instance;
     private static final String NAME = "Влад Цепеш";
     private boolean hunger;
     private String hobbies;
@@ -37,10 +38,17 @@ public class Dracula {
         return yearOfBirth;
     }
 
-    public Dracula() {
+    private Dracula() {
         this.isHumanBited = false;
         this.hunger = true;
         this.hobbies = "пить кровь человеков :-E";
+    }
+
+    public static Dracula getInstance(){
+        if(instance == null){		//если объект еще не создан
+            instance = new Dracula();	//создать новый объект
+        }
+        return instance;		// вернуть ранее созданный объект
     }
 
     public void biteHumans() {
