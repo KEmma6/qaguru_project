@@ -18,7 +18,6 @@ public class TexResourcesPage {
             textTitle = $("h1");
 
     public void openPage() {
-        sleep(3000);
         open("https://ckmt.ru/price-download.html");
     }
 
