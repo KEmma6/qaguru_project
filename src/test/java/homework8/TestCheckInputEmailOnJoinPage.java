@@ -4,17 +4,26 @@ import TestBase.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 public class TestCheckInputEmailOnJoinPage extends TestBase {
 
     GitHubJoinPage gitHubJoinPage = new GitHubJoinPage();
 
-    @Tag("normal")
-    @DisplayName("Негативный тест на проверку поля Email. Ввод невалидной почты")
-    @ValueSource(strings = {"холодильник", "зубная щетка", "электрогриль"})
-    @ParameterizedTest(name = "Поиск товара {0} на сайте Mvideo и проверка отображения текста \"{0}\" в каждой карточке товара")
-    public void testCheckField(String invalidEmail) {
+    private static Stream<Arguments> testCheckFieldUsingMethodSource() {
+        return Stream.of(
+                Arguments.of("test"),
+                Arguments.of("test@test"),
+                Arguments.of("testtest.com"));
+    }
+
+    @Tag("negative")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @ValueSource(strings = {"test", "test@test", "testtest.com"})
+    @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
+    public void testCheckFieldUsingValueSource(String invalidEmail) {
     gitHubJoinPage
             .openPage();
 
@@ -22,6 +31,62 @@ public class TestCheckInputEmailOnJoinPage extends TestBase {
             .sendInvalidEmailToInput(invalidEmail)
             .checkErrorMassageIsVisible()
             .checkErrorIconIsVisible();
-
     }
+
+    @Tag("negative")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @CsvSource({"test","test@test", "testtest.com"})
+    @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
+    public void testCheckFieldUsingCsvSource(String invalidEmail) {
+        gitHubJoinPage
+                .openPage();
+
+        gitHubJoinPage
+                .sendInvalidEmailToInput(invalidEmail)
+                .checkErrorMassageIsVisible()
+                .checkErrorIconIsVisible();
+    }
+
+    @Tag("negative")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @CsvFileSource(resources = {"/invalidEmail.csv"})
+    @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
+    public void testCheckFieldUsingCsvFileSource(String invalidEmail) {
+        gitHubJoinPage
+                .openPage();
+
+        gitHubJoinPage
+                .sendInvalidEmailToInput(invalidEmail)
+                .checkErrorMassageIsVisible()
+                .checkErrorIconIsVisible();
+    }
+
+    @Tag("negative")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @MethodSource
+    @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
+    public void testCheckFieldUsingMethodSource(String invalidEmail) {
+        gitHubJoinPage
+                .openPage();
+
+        gitHubJoinPage
+                .sendInvalidEmailToInput(invalidEmail)
+                .checkErrorMassageIsVisible()
+                .checkErrorIconIsVisible();
+    }
+
+//
+//    @ParameterizedTest(name = "Фильтр ноутбуков с брендом {0}")
+//    @EnumSource(value = NotebookBrands.class)
+//    @Story("Параметризованный тест с @EnumSource")
+//    @Severity(SeverityLevel.BLOCKER)
+//    @Tag("Blocker")
+//    @DisplayName("Параметризованный тест с @EnumSource")
+//    public void checkResultsFilterWithEnumSource(NotebookBrands brand) {
+//        page.openPage()
+//                .showAllBrandsFilter()
+//                .typeBrandName(brand.name())
+//                .chooseBrandName()
+//                .shouldFiltersActive(brand.name());
+//    }
 }
