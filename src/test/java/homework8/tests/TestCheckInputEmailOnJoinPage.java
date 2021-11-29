@@ -1,6 +1,7 @@
-package homework8;
+package homework8.tests;
 
 import TestBase.TestBase;
+import homework8.pages.GitHubJoinPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,13 +12,6 @@ import java.util.stream.Stream;
 public class TestCheckInputEmailOnJoinPage extends TestBase {
 
     GitHubJoinPage gitHubJoinPage = new GitHubJoinPage();
-
-    private static Stream<Arguments> testCheckFieldUsingMethodSource() {
-        return Stream.of(
-                Arguments.of("test"),
-                Arguments.of("test@test"),
-                Arguments.of("testtest.com"));
-    }
 
     @Tag("negative")
     @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
@@ -34,7 +28,7 @@ public class TestCheckInputEmailOnJoinPage extends TestBase {
     }
 
     @Tag("negative")
-    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации CsvSource")
     @CsvSource({"test","test@test", "testtest.com"})
     @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
     public void testCheckFieldUsingCsvSource(String invalidEmail) {
@@ -48,7 +42,7 @@ public class TestCheckInputEmailOnJoinPage extends TestBase {
     }
 
     @Tag("negative")
-    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации CsvFileSource")
     @CsvFileSource(resources = {"/invalidEmail.csv"})
     @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
     public void testCheckFieldUsingCsvFileSource(String invalidEmail) {
@@ -61,8 +55,15 @@ public class TestCheckInputEmailOnJoinPage extends TestBase {
                 .checkErrorIconIsVisible();
     }
 
+    private static Stream<Arguments> testCheckFieldUsingMethodSource() {
+        return Stream.of(
+                Arguments.of("test"),
+                Arguments.of("test@test"),
+                Arguments.of("testtest.com"));
+    }
+
     @Tag("negative")
-    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации ValueSource")
+    @DisplayName("Негативный тест на проверку поля Email c использованием аннотации MethodSource")
     @MethodSource
     @ParameterizedTest(name = "Ввод невалидного адреса эл.почты {0} и проверка отображения сообщения об ошибке")
     public void testCheckFieldUsingMethodSource(String invalidEmail) {
@@ -74,19 +75,4 @@ public class TestCheckInputEmailOnJoinPage extends TestBase {
                 .checkErrorMassageIsVisible()
                 .checkErrorIconIsVisible();
     }
-
-//
-//    @ParameterizedTest(name = "Фильтр ноутбуков с брендом {0}")
-//    @EnumSource(value = NotebookBrands.class)
-//    @Story("Параметризованный тест с @EnumSource")
-//    @Severity(SeverityLevel.BLOCKER)
-//    @Tag("Blocker")
-//    @DisplayName("Параметризованный тест с @EnumSource")
-//    public void checkResultsFilterWithEnumSource(NotebookBrands brand) {
-//        page.openPage()
-//                .showAllBrandsFilter()
-//                .typeBrandName(brand.name())
-//                .chooseBrandName()
-//                .shouldFiltersActive(brand.name());
-//    }
 }
