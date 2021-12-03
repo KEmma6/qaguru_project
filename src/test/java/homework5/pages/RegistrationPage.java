@@ -5,8 +5,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.interactions.Actions;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
