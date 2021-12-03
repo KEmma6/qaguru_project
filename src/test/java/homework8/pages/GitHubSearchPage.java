@@ -1,7 +1,9 @@
 package homework8.pages;
 
 import org.junit.jupiter.api.Assertions;
+
 import java.util.Locale;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
