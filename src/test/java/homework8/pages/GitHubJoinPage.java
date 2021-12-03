@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class GitHubJoinPage {
-
     private String inputEmail = "#user_email";
     private String errorMassage = ".error";
     private String errorIconInField = "input[class*='is-autocheck-errored']";
