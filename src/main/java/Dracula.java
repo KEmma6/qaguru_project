@@ -9,6 +9,7 @@ public class Dracula {
     private boolean isHumanBited;
     private final int yearOfBirth = 1436;
     private static int tusks = 4;
+    private String girl = "Lucy Westenra";
 
     public String getNAME() {
         return NAME;
@@ -36,6 +37,10 @@ public class Dracula {
 
     public int getYearOfBirth() {
         return yearOfBirth;
+    }
+
+    public String getPreferredGirl() {
+        return girl;
     }
 
     private Dracula() {
@@ -68,7 +73,8 @@ public class Dracula {
         System.out.println("Меня зовут " + getNAME() + "\n" +
                 "Мой текущий возраст " + draculaAgeCalculation() + " лет" + "\n" +
                 "Я живу в " + getLOCATION() + "\n" +
-                "Я люблю " + getHobbies());
+                "Я люблю " + getHobbies()) + "\n" +
+                "I prefer " + getPreferredGirl() + "\n");
     }
 
     public int draculaAgeCalculation() {
