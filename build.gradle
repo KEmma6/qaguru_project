@@ -13,12 +13,21 @@ repositories {
 
 dependencies {
     testImplementation (
+ hw_7
             "com.codeborne:selenide:5.25.0",
             "org.junit.jupiter:junit-jupiter-api:5.8.1",
             "com.codeborne:pdf-test:1.6.1",
             "com.googlecode.json-simple:json-simple:1.1.1",
             "com.codeborne:xls-test:1.4.3"
     )
+=======
+            'commons-io:commons-io:2.11.0',
+            'com.codeborne:pdf-test:1.7.0',
+            'com.codeborne:xls-test:1.2',
+            'com.opencsv:opencsv:5.5.2',
+            'org.junit.jupiter:junit-jupiter:5.8.1',
+            'com.codeborne:selenide:6.0.3')
+ master
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
             testCompile group: 'com.github.javafaker', name: 'javafaker', version: '0.12'
 

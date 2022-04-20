@@ -18,9 +18,6 @@ public class TestDragAndDrop extends TestBase {
                         titleSquare = $("div#column-a > header");
 
         Assertions.assertTrue(titleSquare.getText().contains("A"));
-            //actions().clickAndHold(squareA).moveToElement(squareB).release().perform(); <---не работает
-            //actions().dragAndDrop(squareA, squareB).build().perform(); <---не работает
-
         squareA.dragAndDropTo(squareB);
         Assertions.assertTrue(titleSquare.getText().contains("B"));
 

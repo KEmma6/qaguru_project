@@ -5,8 +5,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.interactions.Actions;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -14,7 +12,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationPage {
 
     //элементы
-
     SelenideElement name = $("#firstName"),
             lastName = $("#lastName"),
             email = $x("//input[@id='userEmail']"),
@@ -32,7 +29,6 @@ public class RegistrationPage {
             submitTitle = $x("//div[contains(text(), 'Thanks for submit')]");
 
     //шаги
-
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
     }
@@ -113,7 +109,6 @@ public class RegistrationPage {
     }
 
     //проверки
-
     public RegistrationPage assertSubmitTitleIsVisible() {
         Assertions.assertTrue(submitTitle.isDisplayed());
         return this;
@@ -123,5 +118,4 @@ public class RegistrationPage {
         tableAfterRegistration.shouldHave(text(value));
         return this;
     }
-
 }
